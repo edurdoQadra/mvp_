@@ -4,7 +4,6 @@
         "dev": "vite",
         "build": "vite build",
         "build:digitalocean": "npm install --production=false && npm run build && npm ci"
-
     },
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
