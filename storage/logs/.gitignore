@@ -1,2 +1,49 @@
-*
-!.gitignore
+# Laravel specific
+/vendor
+/public/storage
+/storage/*.key
+.env
+.env.backup
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Log files
+/storage/logs
+*.log
+
+# Cache files
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+
+# IDE specific
+.idea
+.vscode
+
+# NPM
+package-lock.json
+npm-debug.log
+
+# Composer
+composer.lock
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.swn
+*.DS_Store
+*.goutputstream-*
+
+# Custom
+*.sqlite
+*.sqlite3
+
+# Coverage
+coverage/
+*.lcov
+
+# Testing
+*.phpunit.result.cache
