@@ -23,7 +23,7 @@ Thumbs.db
 .vscode
 
 # NPM
-package-lock.json
+
 npm-debug.log
 
 # Composer
