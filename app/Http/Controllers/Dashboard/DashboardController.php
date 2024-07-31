@@ -17,21 +17,21 @@ class DashboardController extends Controller
 
         $ubicaciones = Locationlocal::all();    
         $ubicacionesFormateados = LocalResource::collection($ubicaciones);
-//ventas
+        //ventas
         $ventas = Locationlocal::all();    
         $ventasFormateados = LocalResource::collection($ventas);
 
-    // esto sacar de la tabla utilidad
-    //monto
-    $utilidad = Locationlocal::all();    
-    $montoFormateados = LocalResource::collection($utilidad);
-    
-    //tickets
-    $tickets = Locationlocal::all();    
-    $ticketsFormateados = LocalResource::collection($tickets);
-    
-    return response()->json($ubicacionesFormateados);
-             
+        // esto sacar de la tabla utilidad
+        //monto
+        $utilidad = Locationlocal::all();    
+        $montoFormateados = LocalResource::collection($utilidad);
+        
+        //tickets
+        $tickets = Locationlocal::all();    
+        $ticketsFormateados = LocalResource::collection($tickets);
+        
+        return response()->json($ubicacionesFormateados);
+                
         
     }
     //
