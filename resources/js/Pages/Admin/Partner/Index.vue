@@ -13,7 +13,7 @@
   import 'datatables.net-responsive-dt';
   import 'datatables.net-responsive-dt/css/responsive.dataTables.min.css';
   import Select from 'datatables.net-select';
-  import { BASE_URL } from '../../../config';
+  import { BASE_URL } from '../../config';
 
   // Other components
   import Button from '@/Components/Button.vue';
