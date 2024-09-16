@@ -3,7 +3,7 @@
   import Swal from 'sweetalert2';
   import { ref, onMounted, onBeforeMount } from 'vue';
   import { sendRequest, confirmation, show_alert } from '../../../utils/functions';
-  import { BASE_URL } from '../../../config';
+  import { BASE_URL } from '../../config';
 
   // DataTables and plugins
   import DataTable from 'datatables.net-vue3';
