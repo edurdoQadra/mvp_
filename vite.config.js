@@ -1,41 +1,46 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import vue from '@vitejs/plugin-vue';
-import { BASE_URL } from 'config';
 
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: 'resources/js/app.js',
-            refresh: true,
-        }),
-        vue({
-            template: {
-                transformAssetUrls: {
-                    base: null,
-                    includeAbsolute: false,
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig(({ mode }) => {
+    const isProduction = mode === 'production';
+
+    return {
+        base: isProduction ? 'https://hammerhead-app-vecpt.ondigitalocean.app/' : '/',
+        
+        plugins: [
+            laravel({
+                input: ['resources/js/app.js', 'resources/css/app.css'],
+                // Opcional: puedes agregar aquí la configuración de SSR si es necesario
+                // ssr: 'resources/js/ssr.js',
+            }),
+            vue({
+                template: {
+                    transformAssetUrls: {
+                        base: null,
+                        includeAbsolute: false,
+                    },
                 },
+            }),
+        ],
+
+        define: {
+            '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': JSON.stringify(true),
+        },
+
+        build: {
+            rollupOptions: {
+                // Aquí puedes agregar configuraciones adicionales para Rollup
             },
-        }),
-    ],
-    define: {
-        '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': JSON.stringify(true),
-    },
-    build: {
-        rollupOptions: {
-            external: ['/kingtech_logo_verde@4x.png'],
+            outDir: 'public/build', // El directorio de salida para los archivos construidos
+            assetsDir: 'assets', // El directorio de los activos dentro de 'public/build'
         },
-        outDir: 'public/build',
-        assetsDir: 'assets',
-    },
-    server: {
-        host: '0.0.0.0',
-        port: 5173,
-        strictPort: true,
-        hmr: {
-            protocol: 'ws',
-            host:BASE_URL,
+
+        server: {
+            https: !isProduction, // HTTPS habilitado solo en desarrollo si es necesario
+            // Otras configuraciones como proxy o puertos también se pueden agregar aquí
         },
-    },
+    };
 });
 
