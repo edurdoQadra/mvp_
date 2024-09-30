@@ -38,6 +38,7 @@ export default defineConfig(({ mode }) => {
         },
 
         server: {
+             hmr: !isProduction, // Deshabilitar HMR en producción
             https: !isProduction, // HTTPS habilitado solo en desarrollo si es necesario
             // Otras configuraciones como proxy o puertos también se pueden agregar aquí
         },
